@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :search_priduct, only: [:index, :search]
+  before_action :search_product, only: [:index, :search]
   def index
     @products = Product.all # 全商品の情報を取得
   end
 
   def search
+    # binding.pry
     @results = @p.result.includes(:category)  # 検索条件にマッチした商品の情報を取得
   end
 
