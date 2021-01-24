@@ -8,12 +8,11 @@ class ProductsController < ApplicationController
 
   def search
     @results = @p.result.includes(:category)  # 検索条件にマッチした商品の情報を取得
-    
   end
 
   private
   def search_product
-  @p = Product.ransack(params[:p])  # 検索オブジェクトを生成
+    @p = Product.ransack(params[:q])  # 検索オブジェクトを生成
   end 
 
   def set_product_column
