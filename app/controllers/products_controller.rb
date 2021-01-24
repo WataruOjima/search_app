@@ -14,11 +14,13 @@ class ProductsController < ApplicationController
   def search_product
     @p = Product.ransack(params[:q])  # 検索オブジェクトを生成
   end 
+
   def set_product_column
   @product_name = Product.select("name").distinct  # 重複なくnameカラムのデータを取り出す
   @product_size = Product.select("size").distinct
   @product_status = Product.select("status").distinct 
-  end 
+  end
+
   def set_category_column
   @category_name = Category.select("name").distinct
   end
